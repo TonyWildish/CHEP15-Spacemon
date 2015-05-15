@@ -1,4 +1,54 @@
-\section {Deployment campaign}
+\section{Deployment}
 
-Systematic deployment of CMS Space Monitoring at CMS Tier-2 sites started late spring 2014.Site deployment path includes three steps: 1. Setup Information Provider for site storage2. Install Space Monitoring client to parse and aggregate storage dump and to upload the info3. Set up a scheduler to upload weeklyDetailed instructions [3] for the site adminswere tested and verified at a few pilot sites.Information Providers tools have been verified and improved with several site admins contributions, and now stay stable.The central Data service installation was enhanced to fix the problems discovered.Most frequently reported site specific problems were related to the authenticated upload. A list of troubleshooting steps has been provided for the sites. Still this area required most individual help from the developers. While working on improving the troubleshooting, we are also looking at other secure upload solutions.
-Status of Space Monitoring deployment at the sites and the dates of the most recent upload are reflected in the CMS Dashboard.
+The deployment of the first prototype started in late spring of 2014.
+A few pilot sites with close association to project members were
+chosen and contacted. The goal of this campaign was to collect and
+upload to the central data service the storage information from a few
+sites. This allowed to independently verify the provided client
+software tools and that the documentation is complete and well
+structured. It also provided some first data that could be used to
+design and test the visualization tools. Administrators from several
+sites contributed with feedback and improvements in this first test.
+The pilot deployment led to enhancements in the central data service
+and to updates of the documentation.
+
+In February of 2015 CMS computing management decided to proceed with
+the role out of the space monitoring. CMS site support setup a metric
+in the CMS dashboard that monitors the space information uploaded by
+sites. When this was ready, sites were contacted in small batches and
+ask to setup regular uploading of storage information to the central
+data service. About ten site administrators were contacted via email
+each week. This allowed to sort out any remaining hidden issues, fine
+tune instructions, and provide prompt response to questions and in
+case of problems. The last sites were contacted beginning of May. The
+issues encountered during this first stage of this deployment can be
+categorized into three groups: 1) Questions from sites about why they
+need to provide storage usage information and at what level of detail;
+2) Authentication problems uploading the information to the central
+data service; 3) The long time it takes to take a dump for some
+storage systems. Sites were informed about how CMS plans to use the
+storage information. Site were reminded about the three main reasons
+for the space monitoring project: i) consistency checks between site
+storage and central PhEDEx catalogue, ii) monitoring the inventory of
+areas that are not managed by PhEDEx, and iii) to apply user and group
+quotas fairly at the experiment lavel, i.e.\ across sites. For level
+of detail on the storage information guidance was provided and the
+documentation clarified. The by far largest issues were related to
+the authentication to upload the information. Instructions and also a
+script to troubleshoot the authentication problems has been provided.
+In the process we found the perl-based upload client to not function
+correctly with the one of the perl-SSL libraries and a problem with
+the curl command in the current Scientific Linux distributions. On
+some large storage systems a dump can take several days to complete
+and this needs to be accounted for. As of middle May 2015, about half
+of the sites are uploading space information regularly. Several sites
+are in the process of setting it up. There are no outstanding
+technical issues preventing sites from providing space information.
+The plan is to follow the first stage with a ticketing campaign for
+any remaining sites. We anticipate the roll out to be completed in
+June.
+
+With plans to enhance the schema of the central data service, sites
+have been ask to keep the storage dumps they currently take. Given
+the upload issues, we are also looking into at other secure upload
+solutions.
