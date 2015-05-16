@@ -1,10 +1,9 @@
 \section {Site information providers}
 
-
-To provide storage usage information for the space monitoring system, CMS sites 
-are asked to produce storage dumps in one of the predefined formats, currently 
-text or XML. These formats were chosen based on WLCG recommendations described 
-in \cite{storagedumps}.  Each line of the dump file contains  XML  tags or fields 
+CMS sites are asked to provide storage usage information for the space 
+monitoring in form of storage dumps in one of the predefined formats, currently 
+text or XML. These formats have been chosen based on WLCG recommendations described 
+in \cite{storagedumps}. Each line of the dump file contains  XML  tags or fields 
 separated by a vertical bar with the following values: physical file name as 
 addressed on the site storage file system, files size in bytes, optional: 
 file creation date and checksum. The time stamp of the dump creation is provided 
@@ -19,17 +18,16 @@ solution for retrieving the local storage information for all sites.
 
 On the posix-like file systems, such as EOS, Lustre, Hadoop systems mounted 
 with FUSE, or NFS-mounted dCache storage, the {\it find} command can do the work.
-However traversing the whole storage namespace by this method may cause extra 
-load on the system, or take long time to execute. For some storage systems, 
-e.g. dCache, direct database query on namespace database is more efficient
+However traversing the whole storage namespace by this method causes extra 
+load on the system, or takes long time to execute. For some storage systems, 
+e.g. dCache, direct query on namespace database is more efficient
 while causing less load. The impact on the production storage system can be
 completely avoided when storage dumps are produced on the hot standby server, 
 onto which the namespace database is dynamically replicated for a backup. 
-Sites that provide storage to multiple experiments, can optimize by dumping 
+Sites that provide storage to multiple experiments can optimize by dumping 
 only a sub-branch of the namespace under CMS-owned directory. 
-Another possible optimization is to aggregate directory sizes on the database 
-level instead of producing the whole storage dump. SpaceMon client provides 
-an API to read in the aggregated record. 
+Another possible optimization is to delegate the aggregation of the directory sizes 
+to the database query instead of producing the whole storage dump. 
 
 The choice of the information provider tools remains with the site admins. 
 In many cases the successful recipe can be reused with minimal configuration
