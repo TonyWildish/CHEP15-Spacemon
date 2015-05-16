@@ -10,12 +10,12 @@ New SpaceMon client software includes the following main components:
 \item {\it Record} -  holds aggregated node space usage info 
 \item {\it StorageDump} - machine representation of the storage dump info
 \item {\it Format (XML, TXT) } - rules for parsing storage dump in corresponding format
-\item {\it RecordIO } - provide various input/output operations, such as read or write Record to file, upload or download from the central database via data service, compare two records
+\item {\it RecordIO } - various input/output operations, such as read or write Record to file, upload or download from the central database via data service, compare two records
 \item {\it Aggregate } - algorithm to convert StorageDump into Record   
  \end{itemize}
 
-Components-based design allows for easy enhancements of the functionality and separation of the workflow
+Components-based design allows for easy extentions of the functionality and separates the workflow
 from the implementation details. 
-Additional work was done to eliminate dependency on PhEDEx for independent packaging and release management. 
+Additional work has been done to eliminate dependency on PhEDEx for independent packaging and release management. 
 Particularly, PhEDEx Namespace framework originally used for supporting various storage technologies is replaced
-by Format framework, which implements similar idea for various storage dump formats.
+by Format framework, which implements similar idea of plugins used for various storage dump formats.
