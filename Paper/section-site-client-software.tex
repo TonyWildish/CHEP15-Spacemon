@@ -1,13 +1,21 @@
 \section {Site client software}
-\subsection {The spacecount utility}
-\begin{itemize}
-\item improved prototype. 
-\end{itemize} 
-\subsection {The SpaceMon framework }
-% include here information from the SpaceMon README file.
 
-\begin{itemize}
-\item eliminate dependency on PhEDEx for independent packaging and release management 
-\item replace Namespace framework that supports various technologies by Format framework, which implements similar idea for various storage dump formats. 
-\item RecordIO module provides functions (interfaces?) for handlig the space information 
-\end{itemize}
+SpaceMon client tools are installed at the sites for processing storage dumps and uploading aggregated
+space usage information into the central data store.  Deployment campaign at the sites started with 
+the prototype of the client tool developed within PhEDEx software framework \cite{phedexframework} and 
+presented in \cite{spacemon}. 
+
+New SpaceMon client software includes the following main components: 
+ \begin{itemize}
+\item {\it Record} -  holds aggregated node space usage info 
+\item {\it StorageDump} - machine representation of the storage dump info
+\item {\it Format (XML, TXT) } - rules for parsing storage dump in corresponding format
+\item {\it RecordIO } - provide various input/output operations, such as read or write Record to file, upload or download from the central database via data service, compare two records
+\item {\it Aggregate } - algorithm to convert StorageDump into Record   
+ \end{itemize}
+
+Components-based design allows for easy enhancements of the functionality and separation of the workflow
+from the implementation details. 
+Additional work was done to eliminate dependency on PhEDEx for independent packaging and release management. 
+Particularly, PhEDEx Namespace framework originally used for supporting various storage technologies is replaced
+by Format framework, which implements similar idea for various storage dump formats.
